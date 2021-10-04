@@ -1,0 +1,26 @@
+val no = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+val noDataRDD = sc.parallelize(no)
+
+val dat = sc.textFile("data.txt")
+
+val df = spark.read.csv("data.txt")
+val df = spark.read.option("header", "true").csv("data.txt")
+val df2= df.withColumn("C3",lit("aa"))
+
+
+df.count()
+df.cache() 	
+
+
+dat.partitions.length
+val datrep1= dat.repartition(15)
+datrep1.count
+
+
+case class Test(id:String,city:String)
+val myFile = sc.textFile("data.txt")
+val df= myFile.map( x => x.split(",") ).map( x=> Test(x(0),x(1)) ).toDF()
+df.printSchema
+
+
+ncat -lk 7890
