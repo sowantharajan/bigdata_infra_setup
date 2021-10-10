@@ -1,2 +1,12 @@
 1, Azure Data factory - ADF
 2, Azure Databricks
+
+
+ADF:
+Datapipeline without using Spark or any distributed processing engine for ETL / ELT
+Source to Target
+our example: Moving Azure storage data to SQL DB and then making dashboards in PowerBI
+
+Databricks:
+Instead of creating our Spark cluster and writing default code to read and write the data, This Databricks notebook automatically giving to us.
+NO need to worry about Spark infrastructure, monitoring and all
